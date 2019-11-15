@@ -109,7 +109,10 @@ public class AuthorDAO {
             pstm.setString(1, author.getName());
             pstm.setString(2, author.getFname());
             int r = pstm.executeUpdate();
-            System.out.println("Linhas modificadas: " + r);
+            if(r>=1) {
+            	JOptionPane.showMessageDialog(null,"Autor Adicionado","Aviso",JOptionPane.INFORMATION_MESSAGE);
+            	
+            }
             db.close();  
             if(r > 0) {
             	return true;

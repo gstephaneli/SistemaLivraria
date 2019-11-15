@@ -16,6 +16,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MenuPanel extends JFrame {
 
@@ -70,6 +72,15 @@ public class MenuPanel extends JFrame {
 		menuAutores.add(menuAutoresListar);
 		
 		JMenuItem menuAutoresAdicionar = new JMenuItem("Adicionar");
+		menuAutoresAdicionar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ViewAddAutor view = new ViewAddAutor();
+				view.setVisible(true);
+				view.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				
+				
+			}
+		});
 		menuAutores.add(menuAutoresAdicionar);
 		
 		JMenu menuEditora = new JMenu("Editora");
@@ -79,6 +90,15 @@ public class MenuPanel extends JFrame {
 		menuEditora.add(menuEditoraListar);
 		
 		JMenuItem menuEditoraAdicionar = new JMenuItem("Adicionar");
+		menuEditoraAdicionar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				viewAddEditora view = new viewAddEditora();
+				view.setVisible(true);
+				view.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				
+				
+			}
+		});
 		menuEditora.add(menuEditoraAdicionar);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

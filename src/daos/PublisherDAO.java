@@ -72,9 +72,10 @@ public class PublisherDAO {
             pstm.setString(1, publisher.getName());
             pstm.setString(2, publisher.getUrl());
             int r = pstm.executeUpdate();
-
-            System.out.println("Linhas modificadas: " + r);
-
+            if(r>=1) {
+            	JOptionPane.showMessageDialog(null,"Editora Adicionada","Aviso",JOptionPane.INFORMATION_MESSAGE);
+            	
+            }
             return true;
         } catch (SQLException e) {
             System.out.println(e);

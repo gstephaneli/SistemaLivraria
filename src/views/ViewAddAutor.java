@@ -6,10 +6,17 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import daos.AuthorDAO;
+import models.AuthorModel;
+
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
@@ -92,10 +99,32 @@ public class ViewAddAutor extends JFrame {
 		contentPane.add(panel, gbc_panel);
 		panel.setLayout(new BorderLayout(0, 0));
 		
-		JButton buttonSalvar = new JButton("New button");
+		JButton buttonSalvar = new JButton("Salvar");
+		buttonSalvar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				AuthorDAO aDao = new AuthorDAO();
+				try {
+					aDao.store(new AuthorModel(jCampoNome.getText(), jCampoSobrenome.getText()));
+				} catch (Throwable e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		panel.add(buttonSalvar, BorderLayout.WEST);
 		
-		JButton buttonCancelar = new JButton("New button");
+		
+		JButton buttonCancelar = new JButton("Cancelar");
+		buttonCancelar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				
+			}
+		});
 		panel.add(buttonCancelar, BorderLayout.EAST);
 	}
 
