@@ -7,6 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
 import models.PublisherModel;
 
 public class PublisherDAO {
@@ -117,11 +120,14 @@ public class PublisherDAO {
             pstm.setString(2, publisher.getUrl());
             pstm.setInt(3, publisher.getPublisher_id());
             int r = pstm.executeUpdate();
-            System.out.println("Linhas modificadas: " + r);
+            if(r>=1) {
+            	JOptionPane.showMessageDialog(null,"Editora alterada","Aviso",JOptionPane.INFORMATION_MESSAGE);
+            }
+            
 
             return true;
         } catch (SQLException e) {
-            System.out.println(e);
+        	JOptionPane.showMessageDialog(null,"Tamanho do nome ou url excede o limite","Aviso",JOptionPane.ERROR_MESSAGE);
         }
         db.close(); 
         return false;

@@ -7,6 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+import controllers.TableBooksController;
 import models.AuthorModel;
 
 public class AuthorDAO {
@@ -151,11 +155,15 @@ public class AuthorDAO {
             pstm.setString(2, author.getFname());
             pstm.setInt(3, author.getAuthor_id());
             int r = pstm.executeUpdate();
-            System.out.println("Linhas modificadas: " + r);
+            if(r>=1) {
+            	JOptionPane.showMessageDialog(null,"Autor alterada","Aviso",JOptionPane.INFORMATION_MESSAGE);
+            	
+            }
             db.close();  
             return true;
         } catch (SQLException e) {
-            System.out.println(e);
+            
+            JOptionPane.showMessageDialog(null,"Tamanho do nome ou sobrenome excede o limite","Aviso",JOptionPane.ERROR_MESSAGE);
         }
         
         return false;

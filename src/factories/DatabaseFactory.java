@@ -11,7 +11,7 @@ public class DatabaseFactory {
     public final static String DATABASE = "Livraria";
     public final static String URL = "jdbc:postgresql:" + DATABASE;
     public final static String USER = "postgres";
-    public final static String PASS = "123456";
+    public final static String PASS = "root";
 
 
 

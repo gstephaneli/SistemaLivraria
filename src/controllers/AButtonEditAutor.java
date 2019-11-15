@@ -26,9 +26,8 @@ public class AButtonEditAutor implements ActionListener{
 		
 		viewAlterAutor.setjCampoNome(String.valueOf(table.getValueAt(table.getSelectedRow(), 0)));
 		viewAlterAutor.setjCampoSobrenome(String.valueOf(table.getValueAt(table.getSelectedRow(), 1)));
-		viewAlterAutor.setId_autor(String.valueOf(table.getValueAt(table.getSelectedRow(), 1)));
 		viewAlterAutor.setId_autor(String.valueOf(table.getValueAt(table.getSelectedRow(), 4)));
-		System.out.println(viewAlterAutor.getId_autor());
+		
 		
 		
 		

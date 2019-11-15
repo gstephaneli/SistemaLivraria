@@ -128,7 +128,7 @@ public class ViewAlterEditora extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				JOptionPane.showMessageDialog(null,"alterado");
+				
 			}
 			
 		});
@@ -138,7 +138,7 @@ public class ViewAlterEditora extends JFrame {
 		buttonCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
-				JOptionPane.showMessageDialog(null,"alterado");
+				//JOptionPane.showMessageDialog(null,"alterado");
 			}
 			
 		});
@@ -152,6 +152,8 @@ public class ViewAlterEditora extends JFrame {
 	public void setjCampoURL(String text) {
 		this.jCampoURL.setText(text);
 	}
+	
+	
 	
 	
 

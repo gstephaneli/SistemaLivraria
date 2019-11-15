@@ -26,6 +26,18 @@ public class AButtonEditLivro implements ActionListener{
 		janelaAlterlivro.setjCampoISBN(String.valueOf(table.getValueAt(table.getSelectedRow(), 2)));
 		janelaAlterlivro.setjCampoPreco(String.valueOf(table.getValueAt(table.getSelectedRow(), 3)));
 		
+		
+		
+	}
+	
+	static class editaLivro implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			
+			
+		}
+		
 	}
 
 }

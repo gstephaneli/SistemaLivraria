@@ -30,8 +30,9 @@ public class aButtonEditEditora implements ActionListener{
 		viewAlterEditora.setjCampoNome(String.valueOf(table.getValueAt(table.getSelectedRow(), 0)));
 		viewAlterEditora.setjCampoURL(String.valueOf(table.getValueAt(table.getSelectedRow(), 1)));
 		viewAlterEditora.setId_editora(String.valueOf(table.getValueAt(table.getSelectedRow(), 4)));
-		System.out.println(viewAlterEditora.getId_editora());
+		
 		
 	}
+	
 
 }
