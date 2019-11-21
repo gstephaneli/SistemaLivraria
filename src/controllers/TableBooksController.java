@@ -96,7 +96,7 @@ public final class TableBooksController {
             table.getColumnModel().getColumn(5).setCellRenderer(new ButtonRenderer(table));
             table.getColumnModel().getColumn(5).setCellEditor(new ButtonEditorLivro(new JTextField(), table));
             table.getColumnModel().getColumn(6).setCellRenderer(new ButtonRenderer(table));
-            table.getColumnModel().getColumn(6).setCellEditor(new ButtonEditorLivro(new JTextField(), table));
+            table.getColumnModel().getColumn(6).setCellEditor(new ButtonDelete(new JTextField(), table,"livros"));
             table.getColumnModel().getColumn(0).setMaxWidth(350);
             table.getColumnModel().getColumn(0).setMinWidth(350);
             table.getColumnModel().getColumn(1).setMaxWidth(430);
@@ -150,7 +150,7 @@ public final class TableBooksController {
                 table.getColumnModel().getColumn(2).setCellRenderer(new ButtonRenderer(table));
                 table.getColumnModel().getColumn(2).setCellEditor(new ButtonEditorAutor(new JTextField(), table));
                 table.getColumnModel().getColumn(3).setCellRenderer(new ButtonRenderer(table));
-                table.getColumnModel().getColumn(3).setCellEditor(new ButtonEditorAutor(new JTextField(), table));
+                table.getColumnModel().getColumn(3).setCellEditor(new ButtonDelete(new JTextField(), table,"autores"));
 
                 table.getColumnModel().getColumn(4).setMaxWidth(0);
                 table.getColumnModel().getColumn(4).setMinWidth(0);
@@ -209,7 +209,7 @@ public final class TableBooksController {
                 table.getColumnModel().getColumn(2).setCellRenderer(new ButtonRenderer(table));
                 table.getColumnModel().getColumn(2).setCellEditor(new ButtonEditorEditora(new JTextField(), table));
                 table.getColumnModel().getColumn(3).setCellRenderer(new ButtonRenderer(table));
-                table.getColumnModel().getColumn(3).setCellEditor(new ButtonEditorEditora(new JTextField(), table));
+                table.getColumnModel().getColumn(3).setCellEditor(new ButtonDelete(new JTextField(), table,"editoras"));
 
                 table.getColumnModel().getColumn(4).setMaxWidth(0);
                 table.getColumnModel().getColumn(4).setMinWidth(0);

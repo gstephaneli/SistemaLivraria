@@ -109,7 +109,8 @@ public class AuthorController {
 			if (action.checkId(author)) {
 				res = action.delete(author_id);
 				BookAuthorDAO dao = new BookAuthorDAO();
-				dao.deleteRelacionamento(book);
+				//em teste
+				//dao.deleteRelacionamento(book);
 				return true;
 			} else {
 				System.out.println("O autor n�o existe");

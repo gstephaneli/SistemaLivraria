@@ -25,7 +25,7 @@ public class CriaViewSelectAutor {
 
 	GridBagConstraints gbc = new GridBagConstraints();
 	int contadorY = 0;
-	int contadorAutores = 0,auxContandoAutores=0;
+	
 	
 	
 	static ArrayList<AuthorModel> aSelectionados = new ArrayList<AuthorModel>();
@@ -53,7 +53,7 @@ public class CriaViewSelectAutor {
 		for(AuthorModel autor : totalAutores) {
 			
 			checkBoxAutores.add(new JCheckBox(autor.getName()));
-			contadorAutores++;
+			
 			
 		}
 		
