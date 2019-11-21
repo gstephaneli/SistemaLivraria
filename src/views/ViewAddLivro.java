@@ -72,7 +72,7 @@ public class ViewAddLivro extends JFrame {
 		contentPane.add(jCampoISBN, gbc_jCampoISBN);
 		jCampoISBN.setColumns(10);
 		
-		JLabel labelPreco = new JLabel("Preço:");
+		JLabel labelPreco = new JLabel("Preï¿½o:");
 		GridBagConstraints gbc_labelPreco = new GridBagConstraints();
 		gbc_labelPreco.insets = new Insets(0, 0, 5, 5);
 		gbc_labelPreco.gridx = 0;

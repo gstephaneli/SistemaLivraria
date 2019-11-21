@@ -9,7 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import models.BookModel;
 
 public class BookDAO {
     
@@ -133,13 +132,13 @@ public class BookDAO {
         return false;
     }
 
-    public Boolean delete(Integer author_id) throws SQLException {
-        final String query = "DELETE FROM public.books WHERE author_id = ?;";
+    public Boolean delete(String isbn) throws SQLException {
+        final String query = "DELETE FROM public.books WHERE isbn = ?;";
         Connection db = DatabaseFactory.getConnection();
 
         try {
             PreparedStatement pstm = db.prepareStatement(query);
-            pstm.setInt(1, author_id);
+            pstm.setString(1, isbn);
             int r = pstm.executeUpdate();
             System.out.println("Linhas modificadas: " + r);
 
