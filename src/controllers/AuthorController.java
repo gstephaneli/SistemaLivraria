@@ -110,6 +110,8 @@ public class AuthorController {
 				res = action.delete(author_id);
 				BookAuthorDAO dao = new BookAuthorDAO();
 				dao.deleteRelacionamentoAutor(author);
+				//em teste
+				//dao.deleteRelacionamento(book);
 				return true;
 			} else {
 				System.out.println("O autor n�o existe");

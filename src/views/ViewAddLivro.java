@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.MaskFormatter;
 
 import controllers.CriaViewSelectAutor;
 
@@ -16,6 +17,8 @@ import java.awt.Insets;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -62,8 +65,10 @@ public class ViewAddLivro extends JFrame {
 		gbc_labelISBN.gridx = 0;
 		gbc_labelISBN.gridy = 1;
 		contentPane.add(labelISBN, gbc_labelISBN);
+		MaskFormatter formatoISBN = new MaskFormatter("#############");
 		
-		jCampoISBN = new JTextField();
+		jCampoISBN = new JFormattedTextField(formatoISBN);
+		
 		GridBagConstraints gbc_jCampoISBN = new GridBagConstraints();
 		gbc_jCampoISBN.insets = new Insets(0, 0, 5, 0);
 		gbc_jCampoISBN.fill = GridBagConstraints.HORIZONTAL;
