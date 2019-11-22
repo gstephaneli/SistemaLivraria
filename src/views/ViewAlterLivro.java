@@ -229,7 +229,7 @@ public class ViewAlterLivro extends JFrame {
 						for(AuthorModel autor : autoresSelecionados) {
 							System.out.println(autor);
 						}
-						autoresSelecionados.clear();
+						//autoresSelecionados.clear();
 						//autoresSelecionados = null;
 					} catch (Throwable e1) {
 						// TODO Auto-generated catch block
@@ -240,8 +240,12 @@ public class ViewAlterLivro extends JFrame {
 						System.out.println(autor);
 					}
 				}
-				
-				
+				System.out.println();
+				for(AuthorModel autor : autoresSelecionados) {
+					System.out.println(autor);
+				}
+				BaDao.deleteRelacionamento(new BookModel(titulo,ISBN,editora.getPublisher_id(),preco));
+				BaDao.addRelacionamento(new BookModel(titulo,ISBN,editora.getPublisher_id(),preco), autoresSelecionados);
 				
 				
 				dispose();

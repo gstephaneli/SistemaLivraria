@@ -21,14 +21,14 @@ public class BookAuthorDAO {
         Connection db = DatabaseFactory.getConnection();
 
         try {
-            PreparedStatement pstm = db.prepareStatement(query);
-            pstm.setString(1, book.getIsbn());
-            int i = 1;
             for (AuthorModel author : authors) {
+                int i = 1;
+                PreparedStatement pstm = db.prepareStatement(query);
+                pstm.setString(1, book.getIsbn());
                 pstm.setInt(2, author.getAuthor_id());
-                pstm.setInt(3, i);
-                i++;
+                pstm.setInt(3, i++);
                 pstm.executeQuery(query);
+                i++;
             }
 
         } catch (SQLException e) {

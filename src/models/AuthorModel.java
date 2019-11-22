@@ -45,6 +45,6 @@ public class AuthorModel {
 
     @Override
     public String toString() {
-        return "Author{" + "fname=" + fname + ", name=" + name + '}';
+        return "Author{" + "ID: "+ author_id +"fname=" + fname + ", name=" + name + '}';
     }
 }
