@@ -68,5 +68,16 @@ public class BookController {
 			}
 		}
 	}
+
+	public Boolean deleteBook(BookModel book) throws SQLException {
+		BookDAO dao = new BookDAO();
+		if(book != null){
+			dao.delete(book.getIsbn());
+			return true;
+		} else {
+			System.out.println("o livro não é uma instância de livro");
+			return false;
+		}
+	}
 	
 }

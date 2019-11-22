@@ -60,6 +60,31 @@ public class BookDAO {
     	return books;
     }
 
+    public ArrayList<BookModel> getBookByPublisher(Integer publisher_id){
+    	ArrayList<BookModel> books = new ArrayList<>();
+    	Connection db = DatabaseFactory.getConnection();
+    	final String query = "SELECT * FROM public.books WHERE LOWER(publisher_id) = ?;";
+    	
+    	try {
+    		
+    		PreparedStatement pstm = db.prepareStatement(query);
+    		pstm.setInt(1, publisher_id);
+    		ResultSet rs = pstm.executeQuery();
+    		
+    		while(rs.next()) {
+    			BookModel book = new BookModel(rs.getString("title"), rs.getString("isbn"), rs.getInt("publisher_id"), rs.getDouble("price"));
+    			books.add(book);
+    		}
+
+    		db.close();
+			
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+    	
+    	return books;
+    }
+
 
     public Boolean store(BookModel book) throws Throwable {
         final String query = "INSERT INTO public.books(title, isbn, publisher_id, price) VALUES (?, ?, ?, ?);";
