@@ -8,8 +8,11 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controllers.CriaViewSelectAutor;
+import daos.AuthorDAO;
+import daos.BookAuthorDAO;
 import daos.PublisherDAO;
 import models.AuthorModel;
+import models.BookModel;
 import models.PublisherModel;
 
 import java.awt.GridBagLayout;
@@ -85,6 +88,8 @@ public class ViewAlterLivro extends JFrame {
 	}
 
 	public ViewAlterLivro() throws Throwable {
+		
+		//autoresSelecionados = CriaViewSelectAutor.getaSelectionados();
 		setTitle("Editar Livro");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 205);
@@ -208,6 +213,37 @@ public class ViewAlterLivro extends JFrame {
 		buttonSaveEditLivro = new JButton("Salvar");
 		buttonSaveEditLivro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				AuthorDAO aDao = new AuthorDAO();
+				BookAuthorDAO BaDao = new BookAuthorDAO();
+				editora = (PublisherModel) comboBoxEditora.getSelectedItem();
+				String titulo = jCampoTitulo.getText();
+				String ISBN = jCampoISBN.getText();
+			
+				Double preco = Double.valueOf(jCampoPreco.getText());
+				System.out.println(new BookModel(titulo,ISBN,editora.getPublisher_id(),preco));
+				if(autoresSelecionados.isEmpty() == true) {
+					
+					
+					try {
+						autoresSelecionados = aDao.listarAutores(ISBN);
+						for(AuthorModel autor : autoresSelecionados) {
+							System.out.println(autor);
+						}
+						autoresSelecionados.clear();
+						//autoresSelecionados = null;
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}else {
+					for(AuthorModel autor : autoresSelecionados) {
+						System.out.println(autor);
+					}
+				}
+				
+				
+				
+				
 				dispose();
 			}
 		});
@@ -258,5 +294,12 @@ public class ViewAlterLivro extends JFrame {
 	static void pegaAutoresSelecionados(ArrayList<AuthorModel> autores) {
 		autoresSelecionados = autores;
 	}
+	public static void limpaAutoresSelecionados() {
+		ViewAlterLivro.autoresSelecionados.clear();
+	}
+	public static void setAutoresSelecionados(AuthorModel autorSelecionado) {
+		ViewAlterLivro.autoresSelecionados.add(autorSelecionado);
+	}
+	
 
 }

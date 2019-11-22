@@ -20,6 +20,7 @@ import models.AuthorModel;
 import models.PublisherModel;
 import views.ViewAlterLivro;
 import views.ViewSelectAutor;
+import views.viewAddEditora;
 
 public class CriaViewSelectAutor {
 
@@ -58,20 +59,23 @@ public class CriaViewSelectAutor {
 		}
 		
 		for(JCheckBox ckBox : checkBoxAutores) {
-			if(aSelectionados.isEmpty() != true) {
-				for(AuthorModel autor :aSelectionados) {
-					if(ckBox.getText().trim().contentEquals(autor.getName().trim())) {
-						ckBox.setSelected(true);
-					}
-				}
-			}
-			else {
+			//if(getaSelectionados().isEmpty() != true) {
+				//for(AuthorModel autor :aSelectionados) {
+					//if(ckBox.getText().trim().contentEquals(autor.getName().trim())) {
+						//ckBox.setSelected(true);
+					//}
+				//}
+			//}
+			//else if(getaSelectionados().isEmpty() == true){
+				//setaSelectionados(null);
+			//}
+			
 				for(AuthorModel autor :autoresDoLivro) {
 					if(ckBox.getText().trim().contentEquals(autor.getName().trim())) {
 						ckBox.setSelected(true);
 					}
 				}
-			}
+			
 			panelCkBox.add(ckBox,getGbc());
 			contadorY++;
 		}
@@ -85,9 +89,11 @@ public class CriaViewSelectAutor {
 		for(JCheckBox ckBox : checkBoxAutores) {
 			
 			if(ckBox.isSelected() == true) {
+				ViewAlterLivro.limpaAutoresSelecionados();
 				for(AuthorModel autor : totalAutores) {
 					if(ckBox.getText().trim().equals(autor.getName().trim())) {
 						aSelectionados.add(autor);
+						ViewAlterLivro.setAutoresSelecionados(autor);
 						System.out.println(autor.getName());
 					}
 				}
