@@ -32,17 +32,17 @@ public class ButtonDelete extends DefaultCellEditor {
 				
 				if(op == "livros") {
 					Object[] options = { "Deletar Livro","Cancelar" };
-					int opcao = JOptionPane.showOptionDialog(null, "O que deseja deletar:", "Selecione uma opção", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]); 
+					int opcao = JOptionPane.showOptionDialog(null, "O que deseja deletar:", "Selecione uma opï¿½ï¿½o", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]); 
 					System.out.println(opcao);
 				}
 				else if(op == "autores") {
 					Object[] options = { "Deletar autor","Deletar autor e livros","Cancelar" };
-					int opcao = JOptionPane.showOptionDialog(null, "O que deseja deletar:", "Selecione uma opção", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);		
+					int opcao = JOptionPane.showOptionDialog(null, "O que deseja deletar:", "Selecione uma opï¿½ï¿½o", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);		
 					System.out.println(opcao);
 				}
 				else if(op == "editoras") {
 					Object[] options = { "Deletar Livro","Deletar editora e livros","Cancelar" };
-					int opcao = JOptionPane.showOptionDialog(null, "O que deseja deletar:", "Selecione uma opção", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+					int opcao = JOptionPane.showOptionDialog(null, "O que deseja deletar:", "Selecione uma opï¿½ï¿½o", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 					System.out.println(opcao);
 				}
 			}

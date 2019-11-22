@@ -181,4 +181,33 @@ public class PublisherDAO {
     	
     	return true;
     }
+
+    public Boolean checkId(PublisherModel publisher) {
+    	Connection db = DatabaseFactory.getConnection();
+    	final String query = "SELECT * FROM public.publishers WHERE publisher_id = ?;";
+    	
+    	try {
+    		
+    		PreparedStatement pstm = db.prepareStatement(query);
+    		pstm.setInt(1, publisher.getPublisher_id());
+    		ResultSet rs = pstm.executeQuery();
+    		
+    		db.close();
+    		
+    		if(rs.next()) {
+    			// retorna verdadeiro se existir
+    			return true;
+    		} else {
+    			// retorna falso se n�o existir
+    			return false;
+    		} 		
+        	
+			
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+    	
+    	
+    	return true;
+    }
 }
